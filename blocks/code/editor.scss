@@ -1,0 +1,9 @@
+@import 'scss/themes/atom-one-dark/codemirror';
+@import 'scss/themes/atom-one-light/codemirror';
+
+.wp-block-cedaro-code {
+	.CodeMirror {
+		height: auto;
+		z-index: 1;
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"name": "cedaro/shiny-code",
+	"description": "A Gutenberg block for editing and displaying code with syntax highlighting.",
+	"keywords": [
+		"wordpress"
+	],
+	"homepage": "https://www.cedaro.com/",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Cedaro",
+			"email": "support@cedaro.com",
+			"homepage": "https://www.cedaro.com/"
+		}
+	],
+	"type": "wordpress-plugin",
+	"require": {
+		"cedaro/wp-plugin": "^0.4",
+		"composer/installers": "^1.0"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+		"roave/security-advisories": "dev-master",
+		"squizlabs/php_codesniffer": "^3.3",
+		"phpcompatibility/phpcompatibility-wp": "^1",
+		"wp-coding-standards/wpcs": "^1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Cedaro\\WP\\BlockType\\Code\\": "php/"
+		}
+	},
+	"scripts": {
+		"install-codestandards": [
+			"Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+		],
+		"phpcs": "./vendor/bin/phpcs"
+	}
+}

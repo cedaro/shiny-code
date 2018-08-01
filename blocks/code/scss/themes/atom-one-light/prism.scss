@@ -1,0 +1,192 @@
+@import './colors';
+
+code[class*="language-"] {
+	background-color: transparent;
+	font-size: 1em;
+	padding: 0;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	background: none;
+	color: black;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	hyphens: none;
+	line-height: 1.5;
+	tab-size: 4;
+	text-align: left;
+	text-shadow: 0 1px white;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+
+	&::-moz-selection,
+	& ::-moz-selection {
+		background: #b3d4fc;
+		text-shadow: none;
+	}
+
+	&::selection,
+	& ::selection {
+		background: #b3d4fc;
+		text-shadow: none;
+	}
+
+	@media print {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	margin: .5em 0;
+	overflow: auto;
+	padding: 1em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	border-radius: .3em;
+	padding: .1em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: $mono-3;
+}
+
+.token.punctuation {
+	color: $mono-1;
+}
+
+.token.interpolation-punctuation {
+	color: $hue-5-2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag {
+	color: $hue-5;
+}
+
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: $hue-6;
+}
+
+.token.selector {
+	color: $hue-6;
+}
+
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.interpolation {
+	color: $hue-4;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+//.language-css .token.string,
+.style .token.string {
+	color: $mono-1;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: $hue-1;
+}
+
+.token.function {
+	color: $hue-2;
+}
+
+.token.regex {
+	color: $hue-1;
+}
+
+.token.variable {
+	color: $hue-5;
+}
+
+.token.important {
+	color: $hue-5-2;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+code {
+	&.language-css {
+		color: $mono-2;
+
+		.token.atrule,
+		.token.attr-value,
+		.token.keyword {
+			color: $hue-3;
+		}
+
+		.token.property {
+			color: $mono-1;
+		}
+	}
+
+	&.language-javascript {
+		.token.atrule,
+		.token.attr-value,
+		.token.keyword {
+			color: $hue-3;
+		}
+
+		.token.operator {
+			color: $hue-1;
+		}
+	}
+}
+
+/*
+ * Overrides styles for the Line Numbers plugin.
+ * @link http://prismjs.com/plugins/line-numbers/
+ */
+@import '../prism-line-numbers';
+
+.line-numbers {
+	code {
+		.line-numbers-rows {
+			border-right-width: 0;
+
+			> span:before {
+				color: $syntax-gutter;
+			}
+		}
+	}
+}

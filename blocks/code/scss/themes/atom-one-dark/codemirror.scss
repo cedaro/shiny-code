@@ -1,0 +1,46 @@
+@import './colors';
+
+.cm-s-atom-one-dark {
+	background: $syntax-bg;
+	color: $mono-1;
+
+	.cm-atom,
+	.cm-number,
+	.cm-qualifier,
+	.cm-variable-3 { color: $hue-6;}
+	.cm-comment { color: $mono-3;}
+	.cm-def,
+	.cm-operator { color: $mono-1;}
+	.cm-keyword { color: $hue-3;}
+	.cm-meta { color: $hue-5-2;}
+	.cm-string { color: $hue-4;}
+	.cm-string-2 { color: $hue-1;}
+	.cm-variable { color: $hue-2;}
+	.cm-tag,
+	.cm-variable-2 { color: $hue-5;}
+
+	.CodeMirror-gutters {
+		background: hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
+		border-right: 0px;
+		padding-right: 8px;
+	}
+
+	.CodeMirror-linenumber {
+		color: $syntax-gutter;
+	}
+
+	.CodeMirror-activeline-gutter {
+		.CodeMirror-linenumber {
+			color: $mono-1;
+		}
+	}
+
+	.CodeMirror-matchingbracket {
+		border-bottom: 1px solid $mono-1;
+		color: $mono-1 !important;
+	}
+
+	.CodeMirror-activeline-background {
+		background-color: fade-out( $mono-1, 0.95 );
+	}
+}

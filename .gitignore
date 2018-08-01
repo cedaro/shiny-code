@@ -1,0 +1,8 @@
+/build/
+/dist/
+/node_modules/
+/vendor/
+/composer.lock
+/package-lock.json
+/phpcs.xml
+/.phpcs.xml
