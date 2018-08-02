@@ -58,6 +58,10 @@ class Code extends AbstractHookProvider {
 					'source'   => 'text',
 					'selector' => 'code',
 				],
+				'highlightLines'  => [
+					'type'    => 'array',
+					'default' => [],
+				],
 				'language'        => [
 					'type' => 'string',
 				],

@@ -14,15 +14,29 @@ export class CodeBlockEdit extends Component {
 		super( ...arguments );
 
 		this.onChangeTheme = this.onChangeTheme.bind( this );
+		this.toggleLineHighlight = this.toggleLineHighlight.bind( this );
 	}
 
 	onChangeTheme( value ) {
 		dispatch( 'cedaro/code' ).updateTheme( value )
 	}
 
+	toggleLineHighlight( value ) {
+		let lines = this.props.attributes.highlightLines;
+
+		if ( lines.includes( value ) ) {
+			lines = lines.filter( line => line !== value );
+		} else {
+			lines = lines.concat( value );
+		}
+
+		lines.sort();
+		this.props.setAttributes( { highlightLines: lines } );
+	}
+
 	render() {
 		const { attributes, className, setAttributes, theme } = this.props;
-		const { content, language, showLineNumbers } = attributes;
+		const { content, highlightLines, language, showLineNumbers } = attributes;
 
 		return (
 			<Fragment>
@@ -55,10 +69,12 @@ export class CodeBlockEdit extends Component {
 				<div className={ className }>
 					<CodeEditor
 						content={ content }
+						highlightLines={ highlightLines }
 						language={ language }
 						showLineNumbers={ showLineNumbers }
-						theme={ this.props.theme }
+						theme={ theme }
 						onChange={ value => setAttributes( { content: value } ) }
+						onLineNumberClick={ this.toggleLineHighlight }
 					/>
 				</div>
 			</Fragment>

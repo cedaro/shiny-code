@@ -9,11 +9,12 @@ export default class CodeEditor extends Component {
 	constructor() {
 		super( ...arguments );
 
+		this.highlightLines = this.highlightLines.bind( this );
 		this.updateLanguageSettings = this.updateLanguageSettings.bind( this );
 	}
 
 	componentDidMount() {
-		const { language, showLineNumbers, theme } = this.props;
+		const { language, highlightLines, showLineNumbers, theme } = this.props;
 
 		const editor = wp.codeEditor.initialize( this.textarea, {
 			codemirror: {
@@ -36,13 +37,22 @@ export default class CodeEditor extends Component {
 			this.props.onChange( editor.codemirror.getValue() );
 		} );
 
+		editor.codemirror.on( 'gutterClick', ( doc, line ) => {
+			this.props.onLineNumberClick( line );
+		} );
+
 		this.editor = editor;
+		this.highlightLines( highlightLines );
 		this.updateLanguageSettings( language );
 	}
 
 	componentDidUpdate( prevProps, prevState ) {
-		if ( prevProps.language !== this.props.language ) {
+		if ( this.props.language !== prevProps.language ) {
 			this.updateLanguageSettings( this.props.language );
+		}
+
+		if ( this.props.highlightLines !== prevProps.highlightLines ) {
+			this.highlightLines( this.props.highlightLines, prevProps.highlightLines );
 		}
 
 		this.editor.codemirror.setOption( 'lineNumbers', this.props.showLineNumbers );
@@ -51,6 +61,15 @@ export default class CodeEditor extends Component {
 
 	componentWillUnmount() {
 		this.editor.codemirror.toTextArea();
+	}
+
+	highlightLines( lines, prevLines = [] ) {
+		const doc = this.editor.codemirror;
+		const className = 'CodeMirror-linebackground-highlight';
+		const arrayDifference = ( array1, array2 ) => array1.filter( value => ! array2.includes( value ) );
+
+		lines.forEach( line => doc.addLineClass( line, 'background', className ) );
+		arrayDifference( prevLines, lines ).forEach( line => doc.removeLineClass( line, 'background', className ) );
 	}
 
 	updateLanguageSettings( value ) {

@@ -42,4 +42,12 @@
 	.CodeMirror-activeline-background {
 		background-color: fade-out( $mono-1, 0.95 );
 	}
+
+	.CodeMirror-linebackground-highlight {
+		background-color: $syntax-highlight;
+
+		&.CodeMirror-activeline-background {
+			background-color: darken( $syntax-highlight, 5% );
+		}
+	}
 }

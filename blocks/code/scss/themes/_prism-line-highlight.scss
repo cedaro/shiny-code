@@ -1,0 +1,11 @@
+.line-highlight {
+	background: #fffbdd;
+	line-height: inherit;
+	margin-top: 1em; /* Same as .prism’s padding-top */
+	padding: inherit 0;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+	white-space: pre;
+}

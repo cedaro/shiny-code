@@ -4,6 +4,7 @@ code[class*="language-"] {
 	background-color: transparent;
 	font-size: 1em;
 	padding: 0;
+	z-index: 1;
 }
 
 code[class*="language-"],
@@ -173,12 +174,13 @@ code {
 	}
 }
 
+@import '../prism-line-numbers';
+@import '../prism-line-highlight';
+
 /*
  * Overrides styles for the Line Numbers plugin.
  * @link http://prismjs.com/plugins/line-numbers/
  */
-@import '../prism-line-numbers';
-
 .line-numbers {
 	code {
 		.line-numbers-rows {
