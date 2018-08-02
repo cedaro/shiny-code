@@ -3,7 +3,7 @@ import { components, data, editor, element, i18n } from 'wp';
 import CodeEditor from './code-editor';
 import { languageChoices } from './settings';
 
-const { PanelBody, SelectControl, ToggleControl } = components;
+const { PanelBody, SelectControl, TextControl, ToggleControl } = components;
 const { select, withSelect } = data;
 const { InspectorControls } = editor;
 const { Component, Fragment } = element;
@@ -14,6 +14,7 @@ export class CodeBlockEdit extends Component {
 		super( ...arguments );
 
 		this.toggleLineHighlight = this.toggleLineHighlight.bind( this );
+		this.updateFirstLineNumber = this.updateFirstLineNumber.bind( this );
 	}
 
 	toggleLineHighlight( value ) {
@@ -29,9 +30,17 @@ export class CodeBlockEdit extends Component {
 		this.props.setAttributes( { highlightLines: lines } );
 	}
 
+	updateFirstLineNumber( value ) {
+		if ( value ) {
+			value = parseInt( value, 10 );
+		}
+
+		this.props.setAttributes( { firstLineNumber: value } );
+	}
+
 	render() {
 		const { attributes, className, setAttributes, theme } = this.props;
-		const { content, highlightLines, language, showLineNumbers } = attributes;
+		const { content, firstLineNumber, highlightLines, language, showLineNumbers } = attributes;
 
 		return (
 			<Fragment>
@@ -44,15 +53,25 @@ export class CodeBlockEdit extends Component {
 							onChange={ value => setAttributes( { language: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Display line numbers' ) }
+							label={ __( 'Line Numbers' ) }
+							help={ __( 'Toggle to show line numbers.' ) }
 							checked={ showLineNumbers }
 							onChange={ () => setAttributes( { showLineNumbers: ! showLineNumbers } ) }
 						/>
+						{ showLineNumbers && (
+							<TextControl
+								type="number"
+								label={ __( 'First Line Number' ) }
+								value={ firstLineNumber }
+								onChange={ this.updateFirstLineNumber }
+							/>
+						) }
 					</PanelBody>
 				</InspectorControls>
 				<div className={ className }>
 					<CodeEditor
 						content={ content }
+						firstLineNumber={ firstLineNumber }
 						highlightLines={ highlightLines }
 						language={ language }
 						showLineNumbers={ showLineNumbers }

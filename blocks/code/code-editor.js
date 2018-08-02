@@ -14,12 +14,13 @@ export default class CodeEditor extends Component {
 	}
 
 	componentDidMount() {
-		const { language, highlightLines, showLineNumbers, theme } = this.props;
+		const { language, firstLineNumber, highlightLines, showLineNumbers, theme } = this.props;
 
 		const editor = wp.codeEditor.initialize( this.textarea, {
 			codemirror: {
 				continueComments: true,
 				direction: 'ltr',
+				firstLineNumber: firstLineNumber,
 				gutters: [ 'CodeMirror-lint-markers' ],
 				indentUnit: 4,
 				indentWithTabs: true,
@@ -55,6 +56,7 @@ export default class CodeEditor extends Component {
 			this.highlightLines( this.props.highlightLines, prevProps.highlightLines );
 		}
 
+		this.editor.codemirror.setOption( 'firstLineNumber', this.props.firstLineNumber );
 		this.editor.codemirror.setOption( 'lineNumbers', this.props.showLineNumbers );
 		this.editor.codemirror.setOption( 'theme', this.props.theme );
 	}
