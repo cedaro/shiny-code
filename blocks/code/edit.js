@@ -1,10 +1,10 @@
 import classnames from 'classnames';
 import { components, data, editor, element, i18n } from 'wp';
 import CodeEditor from './code-editor';
-import { languageChoices, themeChoices } from './settings';
+import { languageChoices } from './settings';
 
 const { PanelBody, SelectControl, ToggleControl } = components;
-const { dispatch, select, withSelect } = data;
+const { select, withSelect } = data;
 const { InspectorControls } = editor;
 const { Component, Fragment } = element;
 const { __ } = i18n;
@@ -13,12 +13,7 @@ export class CodeBlockEdit extends Component {
 	constructor() {
 		super( ...arguments );
 
-		this.onChangeTheme = this.onChangeTheme.bind( this );
 		this.toggleLineHighlight = this.toggleLineHighlight.bind( this );
-	}
-
-	onChangeTheme( value ) {
-		dispatch( 'cedaro/code' ).updateTheme( value )
 	}
 
 	toggleLineHighlight( value ) {
@@ -52,17 +47,6 @@ export class CodeBlockEdit extends Component {
 							label={ __( 'Display line numbers' ) }
 							checked={ showLineNumbers }
 							onChange={ () => setAttributes( { showLineNumbers: ! showLineNumbers } ) }
-						/>
-					</PanelBody>
-					<PanelBody title={ __( 'Settings' ) } initialOpen={ false }>
-						<p>
-							{ __( 'Settings that apply to all Shiny Code blocks.' ) }
-						</p>
-						<SelectControl
-							label={ __( 'Theme' ) }
-							value={ theme }
-							options={ themeChoices }
-							onChange={ this.onChangeTheme }
 						/>
 					</PanelBody>
 				</InspectorControls>
