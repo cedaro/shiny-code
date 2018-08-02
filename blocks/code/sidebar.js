@@ -60,7 +60,7 @@ class Sidebar extends Component {
 	}
 }
 
-registerPlugin( 'plugin-name', {
+registerPlugin( 'shiny-code', {
 	icon: 'editor-code',
 	render: withSelect( function( select ) {
 		return {
