@@ -79,7 +79,7 @@ class Plugin extends AbstractPlugin {
 			],
 		];
 
-		return apply_filters( 'cedaro_code_block_languages', $languages );
+		return apply_filters( 'shiny_code_languages', $languages );
 	}
 
 	/**
@@ -103,6 +103,6 @@ class Plugin extends AbstractPlugin {
 			],
 		];
 
-		return apply_filters( 'cedaro_code_block_themes', $themes );
+		return apply_filters( 'shiny_code_themes', $themes );
 	}
 }

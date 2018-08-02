@@ -94,13 +94,13 @@ class Code extends AbstractHookProvider {
 			}
 		}
 
-		$theme  = get_option( 'cedaro_code_theme', 'atom-one-light' );
+		$theme  = get_option( 'shiny_code_theme', 'atom-one-light' );
 		$handle = 'prism-theme-' . $theme;
 		if ( wp_style_is( $handle, 'registered' ) ) {
 			wp_enqueue_style( $handle );
 		}
 
-		$highlight_color = get_option( 'cedaro_code_highlight_color' );
+		$highlight_color = get_option( 'shiny_code_highlight_color' );
 		if ( ! empty( $highlight_color ) && wp_style_is( $handle, 'registered' ) ) {
 			$css = ".line-highlight { background: {$highlight_color};}";
 			wp_add_inline_style( $handle, $css );

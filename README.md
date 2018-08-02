@@ -24,11 +24,11 @@ Support for the following languages is included by default:
 * JSON
 * PHP
 
-Additional languages can be registered using the `cedaro_code_block_languages` filter.
+Additional languages can be registered using the `shiny_code_languages` filter.
 
 ### Themes
 
-[Atom One Light](https://github.com/atom/one-light-syntax) and [Atom One Dark](https://github.com/atom/one-dark-syntax) themes are included and additional themes can be registered using the `cedaro_code_block_themes` filter.
+[Atom One Light](https://github.com/atom/one-light-syntax) and [Atom One Dark](https://github.com/atom/one-dark-syntax) themes are included and additional themes can be registered using the `shiny_code_themes` filter.
 
 _CodeMirror and Prism.js don't tokenize code exactly the same, so there will likely be slight differences between the colors in the editor and on the frontend._
 
