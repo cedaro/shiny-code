@@ -9,6 +9,8 @@ A Gutenberg block for editing and displaying code with syntax highlighting.
 * Choose a language for each code block
 * Toggle whether or not line numbers should display
 * Multiple syntax highlighting themes available
+* Highlight specific lines to draw attention to them
+* Choose a custom highlight color
 * Easily transform to/from core Code blocks
 * Code is saved as plain text, allowing it to be displayed in feeds and other contexts
 

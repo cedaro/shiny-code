@@ -33,7 +33,19 @@ class Settings extends AbstractHookProvider {
 	 */
 	protected function register_settings() {
 		register_setting(
-			'cedaro_code_theme',
+			'cedaro_code',
+			'cedaro_code_highlight_color',
+			[
+				'type'              => 'string',
+				'description'       => esc_html__( 'Color for highlighted lines.', 'shiny-code' ),
+				'sanitize_callback' => 'sanitize_hex_color',
+				'show_in_rest'      => true,
+				'default'           => '',
+			]
+		);
+
+		register_setting(
+			'cedaro_code',
 			'cedaro_code_theme',
 			[
 				'type'              => 'string',

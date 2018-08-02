@@ -1,7 +1,7 @@
 import { components, data, editPost, element, i18n, plugins } from 'wp';
 import { themeChoices } from './settings';
 
-const { PanelBody, SelectControl } = components;
+const { ColorPalette, PanelBody, PanelColor, SelectControl } = components;
 const { Component, Fragment } = element;
 const { dispatch, select, withSelect } = data;
 const { PluginSidebar, PluginSidebarMoreMenuItem } = editPost;
@@ -11,16 +11,17 @@ const { registerPlugin } = plugins;
 class Sidebar extends Component {
 	constructor() {
 		super( ...arguments );
-
-		this.onChangeTheme = this.onChangeTheme.bind( this );
-	}
-
-	onChangeTheme( value ) {
-		dispatch( 'cedaro/code' ).updateTheme( value )
 	}
 
 	render() {
-		const { theme } = this.props;
+		const { highlightColor, theme } = this.props;
+
+		const highlightColors = [
+			{
+				name: __( 'Light Yellow' ),
+				color: '#fffbdd',
+			}
+		];
 
 		return (
 			<Fragment>
@@ -39,6 +40,20 @@ class Sidebar extends Component {
 							onChange={ value => dispatch( 'cedaro/code' ).updateTheme( value ) }
 						/>
 					</PanelBody>
+					<PanelColor title={ __( 'Highlight Color' ) } colorValue={ highlightColor } >
+						<ColorPalette
+							colors={ highlightColors }
+							value={ highlightColor }
+							onChange={ value => dispatch( 'cedaro/code' ).updateHighlightColor( value ) }
+						/>
+					</PanelColor>
+					<style>
+					{
+						`.CodeMirror .CodeMirror-linebackground-highlight {
+							background-color: ${highlightColor};
+						}`
+					}
+					</style>
 				</PluginSidebar>
 			</Fragment>
 		);
@@ -49,6 +64,7 @@ registerPlugin( 'plugin-name', {
 	icon: 'editor-code',
 	render: withSelect( function( select ) {
 		return {
+			highlightColor: select( 'cedaro/code' ).getHighlightColor(),
 			theme: select( 'cedaro/code' ).getTheme()
 		};
 	} )( Sidebar ),

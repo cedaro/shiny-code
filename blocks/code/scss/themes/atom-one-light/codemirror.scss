@@ -1,4 +1,5 @@
 @import './colors';
+@import '../codemirror-line-highlight';
 
 .cm-s-atom-one-light {
 	background: hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
@@ -45,9 +46,5 @@
 
 	.CodeMirror-linebackground-highlight {
 		background-color: $syntax-highlight;
-
-		&.CodeMirror-activeline-background {
-			background-color: darken( $syntax-highlight, 5% );
-		}
 	}
 }
