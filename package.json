@@ -9,6 +9,7 @@
 		"classnames": "^2.2.5"
 	},
 	"devDependencies": {
+		"archiver": "^2.1.1",
 		"autoprefixer": "^9.0.2",
 		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.2",
@@ -18,7 +19,11 @@
 		"babel-plugin-transform-runtime": "6.23.0",
 		"babel-preset-env": "^1.6.0",
 		"extract-text-webpack-plugin": "^4.0.0-beta.0",
+		"fs-extra": "^7.0.0",
+		"glob": "^7.1.2",
+		"minimist": "^1.2.0",
 		"node-sass": "4.9.2",
+		"node-wp-i18n": "^1.2.0",
 		"postcss-loader": "^2.0.9",
 		"raw-loader": "^0.5.1",
 		"sass-loader": "^7.1.0",
@@ -29,5 +34,13 @@
 	"scripts": {
 		"build": "BABEL_ENV=default NODE_ENV=production webpack",
 		"dev": "BABEL_ENV=default webpack --watch"
-	}
+	},
+	"distFiles": [
+		"shiny-code.php",
+		"README.md",
+		"{assets,build,languages,php}/**",
+		"vendor/autoload.php",
+		"vendor/composer/*.php",
+		"vendor/{cedaro/wp-plugin,psr/container}/src/**"
+	]
 }
