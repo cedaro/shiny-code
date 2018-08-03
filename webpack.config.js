@@ -1,4 +1,6 @@
+const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const mode = process.env.NODE_ENV || 'development';
 
 const editorCSSPlugin = new ExtractTextPlugin( {
 	filename: 'build/css/editor.css'
@@ -26,6 +28,7 @@ const extractConfig = {
 };
 
 const config = {
+	mode: mode,
 	entry: {
 		'js/editor.js': './blocks/editor.js',
 		'css/themes/atom-one-dark/prism.css': './blocks/code/scss/themes/atom-one-dark/prism.scss',
@@ -73,7 +76,9 @@ const config = {
 	]
 };
 
-if ( 'production' !== process.env.NODE_ENV ) {
+if ( 'production' === mode ) {
+	config.plugins.push( new webpack.LoaderOptionsPlugin( { minimize: true } ) );
+} else {
 	config.devtool = process.env.SOURCEMAP || 'source-map';
 }
 
