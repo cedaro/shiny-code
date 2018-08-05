@@ -52,6 +52,7 @@ class Code extends AbstractHookProvider {
 			'description' => esc_html__( 'Edit and display code with syntax highlighting.', 'shiny-code' ),
 			'icon'        => 'editor-code',
 			'category'    => 'formatting',
+			'keywords'    => [ 'code' ],
 			'attributes'  => [
 				'content'         => [
 					'type'     => 'string',
