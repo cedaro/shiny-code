@@ -2,7 +2,7 @@
 
 A Gutenberg block for editing and displaying code with syntax highlighting.
 
-![Screenshot of the code block editor showing available settings and syntax highlighting.](screenshot-1.png)
+![Animation showing how to convert a code block, set the code language, and change the syntax highlight theme.](screenshot-1.gif)
 
 ## Features
 
@@ -34,11 +34,24 @@ _CodeMirror and Prism.js don't tokenize code exactly the same, so there will lik
 
 ## Installation
 
-Shiny Code should be considered experimental while [Gutenberg](https://github.com/WordPress/gutenberg) is still in development. As such, it's currently only available from source:
+To install _Shiny Code_:
+
+1. [Download the latest release](https://github.com/cedaro/shiny-code/releases/latest) from GitHub (the saved file should be named `shiny-code-{version}.zip`).
+2. Go to the _Plugins &rarr; Add New_ screen in your WordPress admin panel.
+3. Click the __Upload__ button at the top next to the &ldquo;Add Plugins&rdquo; title.
+4. Upload the zip file downloaded in the first step.
+5. Click the __Activate Plugin__ link after installation completes.
+
+### From Source
+
+To build _Shiny Code_ from source, clone this repository in `wp-content/plugins/`, then run the build steps:
 
 ```shell
 git clone https://github.com/cedaro/shiny-code.git
+cd shiny-code
 composer install
 npm install
 npm run build
 ```
+
+After building the plugin, go to the _Plugins &rarr; Installed Plugins_ screen in your WordPress admin panel to activate _Shiny Code_.

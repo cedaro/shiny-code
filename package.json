@@ -1,6 +1,6 @@
 {
 	"name": "shiny-code",
-	"version": "0.1.0-dev",
+	"version": "0.1.0",
 	"description": "A Gutenberg block for editing and displaying code with syntax highlighting.",
 	"homepage": "https://www.cedaro.com/",
 	"license": "GPL-2.0-or-later",
