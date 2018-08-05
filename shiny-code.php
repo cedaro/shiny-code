@@ -7,17 +7,19 @@
  * @license   GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:  Shiny Code
- * Plugin URI:   https://github.com/cedaro/shiny-code
- * Description:  A Gutenberg block for editing and displaying code with syntax highlighting.
- * Version:      0.1.0-dev
- * Author:       Cedaro
- * Author URI:   https://www.cedaro.com/
- * License:      GPL-2.0-or-later
- * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:  shiny-code
- * Domain Path:  /languages
- * Requires PHP: 7.0
+ * Plugin Name:       Shiny Code
+ * Plugin URI:        https://github.com/cedaro/shiny-code
+ * Description:       A Gutenberg block for editing and displaying code with syntax highlighting.
+ * Version:           0.1.0-dev
+ * Author:            Cedaro
+ * Author URI:        https://www.cedaro.com/
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       shiny-code
+ * Domain Path:       /languages
+ * Requires PHP:      7.0
+ * GitHub Plugin URI: cedaro/shiny-code
+ * Release Asset:     true
  */
 
 declare ( strict_types = 1 );
