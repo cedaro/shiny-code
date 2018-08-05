@@ -2,10 +2,10 @@
 /**
  * Code block type.
  *
- * @package   ShinyCode
+ * @package ShinyCode
  * @copyright Copyright (c) 2018, Cedaro, LLC
- * @license   GPL-2.0-or-later
- * @since     1.0.0
+ * @license GPL-2.0-or-later
+ * @since 0.1.0
  */
 
 declare ( strict_types = 1 );
@@ -20,13 +20,13 @@ use const Cedaro\WP\BlockType\Code\VERSION;
  * Code block type provider.
  *
  * @package ShinyCode
- * @since   1.0.0
+ * @since 0.1.0
  */
 class Code extends AbstractHookProvider {
 	/**
 	 * Register hooks.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	public function register_hooks() {
 		if ( ! function_exists( 'register_block_type' ) ) {
@@ -44,7 +44,7 @@ class Code extends AbstractHookProvider {
 	/**
 	 * Register the code block type.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	protected function register_block_type() {
 		register_block_type( 'cedaro/code', [
@@ -84,7 +84,7 @@ class Code extends AbstractHookProvider {
 	/**
 	 * Enqueue block assets for the frontend.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	protected function enqueue_assets() {
 		wp_enqueue_script( 'prism' );
@@ -114,7 +114,7 @@ class Code extends AbstractHookProvider {
 	/**
 	 * Enqueue block assets for the editor.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	protected function enqueue_editor_assets() {
 		wp_enqueue_style( 'code-editor' );

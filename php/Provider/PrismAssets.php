@@ -2,10 +2,10 @@
 /**
  * PrismJS assets.
  *
- * @package   ShinyCode
+ * @package ShinyCode
  * @copyright Copyright (c) 2018, Cedaro, LLC
- * @license   GPL-2.0-or-later
- * @since     1.0.0
+ * @license GPL-2.0-or-later
+ * @since 0.1.0
  */
 
 declare ( strict_types = 1 );
@@ -20,13 +20,13 @@ use const Cedaro\WP\BlockType\Code\VERSION;
  * PrismJS assets provider.
  *
  * @package ShinyCode
- * @since   1.0.0
+ * @since 0.1.0
  */
 class PrismAssets extends AbstractHookProvider {
 	/**
 	 * Register hooks.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	public function register_hooks() {
 		$this->add_action( 'init', 'register_assets', 0 );
@@ -35,7 +35,7 @@ class PrismAssets extends AbstractHookProvider {
 	/**
 	 * Register assets.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 */
 	protected function register_assets() {
 		wp_register_script(

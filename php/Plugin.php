@@ -2,8 +2,8 @@
 /**
  * Main plugin file.
  *
- * @package   ShinyCode
- * @since     1.0.0
+ * @package ShinyCode
+ * @since 0.1.0
  * @copyright Copyright (c) 2018 Cedaro, LLC
  * @license   GPL-2.0-or-later
  */
@@ -18,13 +18,13 @@ use Cedaro\WP\Plugin\AbstractPlugin;
  * Main plugin class.
  *
  * @package ShinyCode
- * @since   1.0.0
+ * @since 0.1.0
  */
 class Plugin extends AbstractPlugin {
 	/**
 	 * Retrieve code language settings.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 *
 	 * @return array
 	 */
@@ -85,7 +85,7 @@ class Plugin extends AbstractPlugin {
 	/**
 	 * Retrieve syntax highlighting theme settings.
 	 *
-	 * @since 1.0.0
+	 * @since 0.1.0
 	 *
 	 * @return array
 	 */
