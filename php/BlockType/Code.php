@@ -48,7 +48,7 @@ class Code extends AbstractHookProvider {
 	 */
 	protected function register_block_type() {
 		register_block_type( 'cedaro/code', [
-			'title'       => esc_html( 'Shiny Code', 'shiny-code' ),
+			'title'       => esc_html__( 'Shiny Code', 'shiny-code' ),
 			'description' => esc_html__( 'Edit and display code with syntax highlighting.', 'shiny-code' ),
 			'icon'        => 'editor-code',
 			'category'    => 'formatting',
