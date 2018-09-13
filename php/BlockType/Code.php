@@ -91,9 +91,9 @@ class Code extends AbstractHookProvider {
 		wp_enqueue_script( 'prism' );
 
 		// @todo Determine which languages are used in a block.
-		$languages = [ 'css', 'javascript', 'php' ];
-		foreach ( $languages as $language ) {
-			$handle = 'prism-' . $language;
+		$languages = $this->plugin->get_languages();
+		foreach ( $languages as $id => $language ) {
+			$handle = 'prism-' . $id;
 			if ( wp_script_is( $handle, 'registered' ) ) {
 				wp_enqueue_script( $handle );
 			}
