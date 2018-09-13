@@ -2,6 +2,9 @@
 
 A Gutenberg block for editing and displaying code with syntax highlighting.
 
+__Requires:__ PHP 7.0 (or later)  
+__License:__ [GPLv2 (or later)](https://www.gnu.org/licenses/gpl-2.0.html)
+
 ![Animation showing how to convert a code block, set the code language, and change the syntax highlight theme.](screenshot-1.gif)
 
 ## Features
