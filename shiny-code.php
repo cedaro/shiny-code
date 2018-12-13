@@ -10,7 +10,7 @@
  * Plugin Name:       Shiny Code
  * Plugin URI:        https://github.com/cedaro/shiny-code
  * Description:       A Gutenberg block for editing and displaying code with syntax highlighting.
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            Cedaro
  * Author URI:        https://www.cedaro.com/
  * License:           GPL-2.0-or-later
@@ -38,7 +38,7 @@ if ( ! \defined( 'ABSPATH' ) ) {
  *
  * @var string
  */
-const VERSION = '0.1.0';
+const VERSION = '1.0.0';
 
 /**
  * Load the Composer autoloader.
