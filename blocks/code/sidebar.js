@@ -1,7 +1,8 @@
-import { components, data, editPost, element, i18n, plugins } from 'wp';
+import { components, data, editor, editPost, element, i18n, plugins } from 'wp';
 import { themeChoices } from './settings';
 
-const { ColorPalette, PanelBody, PanelColor, SelectControl } = components;
+const { PanelBody, SelectControl } = components;
+const { PanelColorSettings } = editor;
 const { Component, Fragment } = element;
 const { dispatch, select, withSelect } = data;
 const { PluginSidebar, PluginSidebarMoreMenuItem } = editPost;
@@ -18,6 +19,7 @@ class Sidebar extends Component {
 
 		const highlightColors = [
 			{
+				slug: 'light-yellow',
 				name: __( 'Light Yellow' ),
 				color: '#fffbdd',
 			}
@@ -40,13 +42,17 @@ class Sidebar extends Component {
 							onChange={ value => dispatch( 'cedaro/code' ).updateTheme( value ) }
 						/>
 					</PanelBody>
-					<PanelColor title={ __( 'Highlight Color' ) } colorValue={ highlightColor } >
-						<ColorPalette
-							colors={ highlightColors }
-							value={ highlightColor }
-							onChange={ value => dispatch( 'cedaro/code' ).updateHighlightColor( value ) }
-						/>
-					</PanelColor>
+					<PanelColorSettings
+						title={ __( 'Color Settings' ) }
+						colorSettings={ [
+							{
+								value: highlightColor,
+								onChange: ( value ) => dispatch( 'cedaro/code' ).updateHighlightColor( value ),
+								label: __( 'Highlight Color' ),
+								colors: highlightColors,
+							},
+						] }
+					/>
 					<style>
 					{
 						`.CodeMirror .CodeMirror-linebackground-highlight {
