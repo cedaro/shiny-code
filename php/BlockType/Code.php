@@ -123,7 +123,7 @@ class Code extends AbstractHookProvider {
 		wp_enqueue_style(
 			'cedaro-code-block-editor',
 			$this->plugin->get_url( 'build/css/editor.css' ),
-			[ 'wp-blocks' ],
+			[ 'wp-edit-blocks' ],
 			VERSION
 		);
 
