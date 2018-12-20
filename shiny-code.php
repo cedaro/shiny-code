@@ -47,6 +47,13 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
+// Display a notice and bail if dependencies are missing.
+if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
+	require_once __DIR__ . '/php/functions.php';
+	add_action( 'admin_notices', __NAMESPACE__ . '\display_missing_dependencies_notice' );
+	return;
+}
+
 // Create the main plugin instance.
 $shiny_code = ( new Plugin() )
 	->set_basename( plugin_basename( __FILE__ ) )
