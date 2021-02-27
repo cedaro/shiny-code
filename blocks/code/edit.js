@@ -1,11 +1,11 @@
 import classnames from 'classnames';
-import { components, data, editor, element, i18n } from 'wp';
+import { blockEditor, components, data, element, i18n } from 'wp';
 import CodeEditor from './code-editor';
 import { languageChoices } from './settings';
 
+const { InspectorControls } = blockEditor;
 const { PanelBody, SelectControl, TextControl, ToggleControl } = components;
-const { select, withSelect } = data;
-const { InspectorControls } = editor;
+const { withSelect } = data;
 const { Component, Fragment } = element;
 const { __ } = i18n;
 
