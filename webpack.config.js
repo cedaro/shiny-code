@@ -1,44 +1,21 @@
 const webpack = require( 'webpack' );
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const mode = process.env.NODE_ENV || 'development';
-
-const editorCSSPlugin = new ExtractTextPlugin( {
-	filename: 'build/css/editor.css'
-} );
-
-const themesCSSPlugin = new ExtractTextPlugin( {
-	filename: 'build/[name]'
-} );
-
-const extractConfig = {
-	use: [
-		{ loader: 'raw-loader' },
-		{
-			loader: 'postcss-loader',
-			options: {
-				plugins: [
-					require( 'autoprefixer' ),
-				],
-			},
-		},
-		{
-			loader: 'sass-loader'
-		},
-	],
-};
 
 const config = {
 	mode: mode,
 	entry: {
-		'js/editor.js': './blocks/editor.js',
-		'css/themes/atom-one-dark/prism.css': './blocks/code/scss/themes/atom-one-dark/prism.scss',
-		'css/themes/atom-one-light/prism.css': './blocks/code/scss/themes/atom-one-light/prism.scss',
-		'css/themes/atom-one-dark/codemirror.css': './blocks/code/scss/themes/atom-one-dark/codemirror.scss',
-		'css/themes/atom-one-light/codemirror.css': './blocks/code/scss/themes/atom-one-light/codemirror.scss'
+		'js/editor': './blocks/editor.js',
+		'css/editor': './blocks/code/editor.scss',
+		'css/themes/atom-one-dark/prism': './blocks/code/scss/themes/atom-one-dark/prism.scss',
+		'css/themes/atom-one-light/prism': './blocks/code/scss/themes/atom-one-light/prism.scss',
+		'css/themes/atom-one-dark/codemirror': './blocks/code/scss/themes/atom-one-dark/codemirror.scss',
+		'css/themes/atom-one-light/codemirror': './blocks/code/scss/themes/atom-one-light/codemirror.scss'
 	},
 	output: {
 		path: __dirname,
-		filename: 'build/[name]'
+		filename: 'build/[name].js'
 	},
 	externals: {
 		_: '_',
@@ -55,24 +32,27 @@ const config = {
 				use: 'babel-loader'
 			},
 			{
-				test: /editor\.s?css$/,
-				include: [
-					/blocks/,
-				],
-				use: editorCSSPlugin.extract( extractConfig ),
-			},
-			{
 				test: /.*\.scss$/,
-				include: [
-					/scss\/themes/,
-				],
-				use: themesCSSPlugin.extract( extractConfig ),
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader'
+					},
+					{
+						loader: 'postcss-loader'
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
 			}
 		]
 	},
 	plugins: [
-		editorCSSPlugin,
-		themesCSSPlugin,
+		new RemoveEmptyScriptsPlugin(),
+		new MiniCssExtractPlugin( {
+			filename: 'build/[name].css'
+		} )
 	]
 };
 
