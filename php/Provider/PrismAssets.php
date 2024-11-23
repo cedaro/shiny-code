@@ -42,7 +42,7 @@ class PrismAssets extends AbstractHookProvider {
 			'prism',
 			$this->plugin->get_url( 'assets/js/vendor/prism.js' ),
 			[],
-			'1.15.0',
+			'1.29.0',
 			true
 		);
 
