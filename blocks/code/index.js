@@ -1,11 +1,10 @@
 import classnames from 'classnames';
-import { blocks, i18n } from 'wp';
+import { blocks } from 'wp';
 import CodeBlockEdit from './edit';
 import './data';
 import './sidebar';
 
 const { createBlock, registerBlockType } = blocks;
-const { __ } = i18n;
 
 registerBlockType( 'cedaro/code', {
 	transforms: {

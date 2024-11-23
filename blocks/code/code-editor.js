@@ -88,7 +88,7 @@ export default class CodeEditor extends Component {
 		return (
 			<textarea
 				ref={ el => this.textarea = el }
-				placeholder={ __( 'Write code…' ) }
+				placeholder={ __( 'Write code…', 'shiny-code' ) }
 				defaultValue={ this.props.content }
 			/>
 		);

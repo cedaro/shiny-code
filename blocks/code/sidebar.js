@@ -20,7 +20,7 @@ class Sidebar extends Component {
 		const highlightColors = [
 			{
 				slug: 'light-yellow',
-				name: __( 'Light Yellow' ),
+				name: __( 'Light Yellow', 'shiny-code' ),
 				color: '#fffbdd',
 			}
 		];
@@ -28,27 +28,27 @@ class Sidebar extends Component {
 		return (
 			<Fragment>
 				<PluginSidebarMoreMenuItem target="shiny-code">
-					{ __( 'Shiny Code' ) }
+					{ __( 'Shiny Code', 'shiny-code' ) }
 				</PluginSidebarMoreMenuItem>
 				<PluginSidebar
 					name="shiny-code"
-					title={ __( 'Shiny Code' ) }
+					title={ __( 'Shiny Code', 'shiny-code' ) }
 				>
 					<PanelBody>
 						<SelectControl
-							label={ __( 'Theme' ) }
+							label={ __( 'Theme', 'shiny-code' ) }
 							value={ theme }
 							options={ themeChoices }
 							onChange={ value => dispatch( 'cedaro/code' ).updateTheme( value ) }
 						/>
 					</PanelBody>
 					<PanelColorSettings
-						title={ __( 'Color Settings' ) }
+						title={ __( 'Color Settings', 'shiny-code' ) }
 						colorSettings={ [
 							{
 								value: highlightColor,
 								onChange: ( value ) => dispatch( 'cedaro/code' ).updateHighlightColor( value ),
-								label: __( 'Highlight Color' ),
+								label: __( 'Highlight Color', 'shiny-code' ),
 								colors: highlightColors,
 							},
 						] }

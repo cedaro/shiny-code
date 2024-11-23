@@ -47,21 +47,21 @@ export class CodeBlockEdit extends Component {
 				<InspectorControls>
 					<PanelBody>
 						<SelectControl
-							label={ __( 'Language' ) }
+							label={ __( 'Language', 'shiny-code' ) }
 							value={ language }
 							options={ languageChoices }
 							onChange={ value => setAttributes( { language: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Line Numbers' ) }
-							help={ __( 'Toggle to show line numbers.' ) }
+							label={ __( 'Line Numbers', 'shiny-code' ) }
+							help={ __( 'Toggle to show line numbers.', 'shiny-code' ) }
 							checked={ showLineNumbers }
 							onChange={ () => setAttributes( { showLineNumbers: ! showLineNumbers } ) }
 						/>
 						{ showLineNumbers && (
 							<TextControl
 								type="number"
-								label={ __( 'First Line Number' ) }
+								label={ __( 'First Line Number', 'shiny-code' ) }
 								value={ firstLineNumber }
 								onChange={ this.updateFirstLineNumber }
 							/>
