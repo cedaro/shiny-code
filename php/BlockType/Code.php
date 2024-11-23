@@ -47,39 +47,42 @@ class Code extends AbstractHookProvider {
 	 * @since 0.1.0
 	 */
 	protected function register_block_type() {
-		register_block_type( 'cedaro/code', [
-			'title'       => esc_html__( 'Shiny Code', 'shiny-code' ),
-			'description' => esc_html__( 'Edit and display code with syntax highlighting.', 'shiny-code' ),
-			'icon'        => 'editor-code',
-			'category'    => 'formatting',
-			'keywords'    => [ 'code' ],
-			'attributes'  => [
-				'content'         => [
-					'type'     => 'string',
-					'source'   => 'text',
-					'selector' => 'code',
+		register_block_type(
+			'cedaro/code',
+			[
+				'title'       => esc_html__( 'Shiny Code', 'shiny-code' ),
+				'description' => esc_html__( 'Edit and display code with syntax highlighting.', 'shiny-code' ),
+				'icon'        => 'editor-code',
+				'category'    => 'formatting',
+				'keywords'    => [ 'code' ],
+				'attributes'  => [
+					'content'         => [
+						'type'     => 'string',
+						'source'   => 'text',
+						'selector' => 'code',
+					],
+					'firstLineNumber' => [
+						'type'    => 'number',
+						'default' => 1,
+					],
+					'highlightLines'  => [
+						'type'    => 'array',
+						'default' => [],
+					],
+					'language'        => [
+						'type' => 'string',
+					],
+					'showLineNumbers' => [
+						'type'    => 'boolean',
+						'default' => true,
+					],
 				],
-				'firstLineNumber' => [
-					'type'    => 'number',
-					'default' => 1,
+				'supports'    => [
+					'align' => [ 'full', 'wide' ],
+					'html'  => false,
 				],
-				'highlightLines'  => [
-					'type'    => 'array',
-					'default' => [],
-				],
-				'language'        => [
-					'type' => 'string',
-				],
-				'showLineNumbers' => [
-					'type'    => 'boolean',
-					'default' => true,
-				],
-			],
-			'supports'    => [
-				'align' => [ 'full', 'wide' ],
-				'html'  => false,
-			],
-		] );
+			]
+		);
 	}
 
 	/**
@@ -137,10 +140,14 @@ class Code extends AbstractHookProvider {
 
 		$themes = $this->plugin->get_themes();
 
-		wp_localize_script( 'cedaro-code-block-editor', '_shinyCode', [
-			'languages' => $this->plugin->get_languages(),
-			'themes'    => $themes,
-		] );
+		wp_localize_script(
+			'cedaro-code-block-editor',
+			'_shinyCode',
+			[
+				'languages' => $this->plugin->get_languages(),
+				'themes'    => $themes,
+			]
+		);
 
 		foreach ( $themes as $theme => $data ) {
 			if ( empty( $data['codemirror'] ) ) {
