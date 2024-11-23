@@ -13,6 +13,7 @@ const argv = require( 'minimist' )( process.argv.slice( 2 ), {
 } );
 
 const pluginFile = path.join( __dirname, `../${ config.name }.php` );
+const composerJson = path.join( __dirname, '../composer.json' );
 const packageJson = path.join( __dirname, '../package.json' );
 let version = argv.version;
 
@@ -23,6 +24,7 @@ if ( ! version ) {
 
 replaceInFile( pluginFile, /(Version:[\s]+).+/, `\$1${ version }` )
 	.then( () => replaceInFile( pluginFile, /VERSION = '.+'/, `VERSION = '${ version }'` ) )
+	.then( () => replaceInFile( composerJson, /"version": "[^"]+"/, `"version": "${ version }"` ))
 	.then( () => replaceInFile( packageJson, /"version": "[^"]+"/, `"version": "${ version }"` ))
 	.then( () => spawn( 'composer', [ 'install', '--no-dev', '--prefer-dist' ] ) )
 	.then( () => spawn( 'composer', [ 'dump-autoload', '--no-dev', '--optimize' ] ) )

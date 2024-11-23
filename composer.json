@@ -1,6 +1,7 @@
 {
 	"name": "cedaro/shiny-code",
 	"description": "A Gutenberg block for editing and displaying code with syntax highlighting.",
+	"version": "1.0.1",
 	"keywords": [
 		"wordpress"
 	],
