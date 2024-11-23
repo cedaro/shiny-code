@@ -1,4 +1,5 @@
-@import './colors';
+@use "sass:meta";
+@use './colors';
 
 code[class*="language-"] {
 	background-color: transparent;
@@ -10,7 +11,7 @@ code[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
 	background: none;
-	color: $mono-1;
+	color: colors.$mono-1;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	hyphens: none;
 	line-height: 1.5;
@@ -48,7 +49,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: $syntax-bg;
+	background: colors.$syntax-bg;
 }
 
 /* Inline code */
@@ -62,15 +63,15 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: $mono-3;
+	color: colors.$mono-3;
 }
 
 .token.punctuation {
-	color: $mono-1;
+	color: colors.$mono-1;
 }
 
 .token.interpolation-punctuation {
-	color: $hue-5-2;
+	color: colors.$hue-5-2;
 }
 
 .namespace {
@@ -79,7 +80,7 @@ pre[class*="language-"] {
 
 .token.property,
 .token.tag {
-	color: $hue-5;
+	color: colors.$hue-5;
 }
 
 .token.boolean,
@@ -87,11 +88,11 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: $hue-6;
+	color: colors.$hue-6;
 }
 
 .token.selector {
-	color: $hue-6;
+	color: colors.$hue-6;
 }
 
 .token.attr-name,
@@ -100,7 +101,7 @@ pre[class*="language-"] {
 .token.builtin,
 .token.inserted,
 .token.interpolation {
-	color: $hue-4;
+	color: colors.$hue-4;
 }
 
 .token.operator,
@@ -108,29 +109,29 @@ pre[class*="language-"] {
 .token.url,
 //.language-css .token.string,
 .style .token.string {
-	color: $mono-1;
+	color: colors.$mono-1;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: $hue-1;
+	color: colors.$hue-1;
 }
 
 .token.function {
-	color: $hue-2;
+	color: colors.$hue-2;
 }
 
 .token.regex {
-	color: $hue-1;
+	color: colors.$hue-1;
 }
 
 .token.variable {
-	color: $hue-5;
+	color: colors.$hue-5;
 }
 
 .token.important {
-	color: $hue-5-2;
+	color: colors.$hue-5-2;
 }
 
 .token.important,
@@ -148,16 +149,16 @@ pre[class*="language-"] {
 
 code {
 	&.language-css {
-		color: $mono-2;
+		color: colors.$mono-2;
 
 		.token.atrule,
 		.token.attr-value,
 		.token.keyword {
-			color: $hue-3;
+			color: colors.$hue-3;
 		}
 
 		.token.property {
-			color: $mono-1;
+			color: colors.$mono-1;
 		}
 	}
 
@@ -165,17 +166,17 @@ code {
 		.token.atrule,
 		.token.attr-value,
 		.token.keyword {
-			color: $hue-3;
+			color: colors.$hue-3;
 		}
 
 		.token.operator {
-			color: $hue-1;
+			color: colors.$hue-1;
 		}
 	}
 }
 
-@import '../prism-line-numbers';
-@import '../prism-line-highlight';
+@include meta.load-css('../prism-line-numbers');
+@include meta.load-css('../prism-line-highlight');
 
 /*
  * Overrides styles for the Line Numbers plugin.
@@ -187,12 +188,12 @@ code {
 			border-right-width: 0;
 
 			> span:before {
-				color: $syntax-gutter;
+				color: colors.$syntax-gutter;
 			}
 		}
 	}
 }
 
 .line-highlight {
-	background: $syntax-highlight;
+	background: colors.$syntax-highlight;
 }

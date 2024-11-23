@@ -1,3 +1,4 @@
+@use "sass:color";
 // @link https://github.com/atom/one-dark-syntax/blob/master/styles/colors.less
 
 
@@ -28,7 +29,7 @@ $hue-6-2: hsl(  39, 67%, 69%); // <-orange 2
 // Base colors -----------------------------------
 $syntax-fg:        $mono-1;
 $syntax-bg:        hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
-$syntax-gutter:    darken( $syntax-fg, 26% );
-$syntax-guide:     fade-out( $syntax-fg, 0.85 );
+$syntax-gutter:    color.adjust( $syntax-fg, $lightness: -26% );
+$syntax-guide:     color.adjust( $syntax-fg, $alpha: -0.85 );
 $syntax-accent:    hsl( $syntax-hue, 100%, 66%  );
 $syntax-highlight: #3e4f7f;

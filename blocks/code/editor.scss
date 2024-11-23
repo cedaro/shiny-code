@@ -1,5 +1,5 @@
-@import 'scss/themes/atom-one-dark/codemirror';
-@import 'scss/themes/atom-one-light/codemirror';
+@use 'scss/themes/atom-one-dark/codemirror' as atom-one-dark;
+@use 'scss/themes/atom-one-light/codemirror' as atom-one-light;
 
 .wp-block-cedaro-code {
 	.CodeMirror {

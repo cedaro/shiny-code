@@ -1,3 +1,4 @@
+@use "sass:color";
 // @link https://github.com/atom/one-light-syntax/blob/master/styles/colors.less
 
 
@@ -29,7 +30,7 @@ $hue-6-2: hsl( 41, 99%, 38%); // <-orange 2
 // Base colors -----------------------------------
 $syntax-fg:        $mono-1;
 $syntax-bg:        hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
-$syntax-gutter:    darken( $syntax-bg, 36% );
+$syntax-gutter:    color.adjust( $syntax-bg, $lightness: -36% );
 $syntax-guide:     fade( $syntax-fg, 20% );
 $syntax-accent:    hsl( $syntax-hue, 100%, 66% );
 $syntax-highlight: #fffbdd;

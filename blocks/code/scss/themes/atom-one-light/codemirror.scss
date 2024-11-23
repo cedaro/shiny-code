@@ -1,50 +1,51 @@
-@import './colors';
-@import '../codemirror-line-highlight';
+@use "sass:color";
+@use './colors';
+@use '../codemirror-line-highlight';
 
 .cm-s-atom-one-light {
-	background: hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
+	background: hsl( colors.$syntax-hue, colors.$syntax-saturation, colors.$syntax-brightness );
 
 	.cm-atom,
 	.cm-number,
 	.cm-qualifier,
-	.cm-variable-3 { color: $hue-6;}
-	.cm-comment { color: $mono-3;}
+	.cm-variable-3 { color: colors.$hue-6;}
+	.cm-comment { color: colors.$mono-3;}
 	.cm-def,
-	.cm-operator { color: $mono-1;}
+	.cm-operator { color: colors.$mono-1;}
 	.cm-keyword,
-	.cm-string-2 { color: $hue-1;}
-	.cm-meta { color: $hue-5-2;}
-	.cm-string { color: $hue-4;}
-	.cm-variable { color: $hue-2;}
+	.cm-string-2 { color: colors.$hue-1;}
+	.cm-meta { color: colors.$hue-5-2;}
+	.cm-string { color: colors.$hue-4;}
+	.cm-variable { color: colors.$hue-2;}
 	.cm-tag,
-	.cm-variable-2 { color: $hue-5;}
+	.cm-variable-2 { color: colors.$hue-5;}
 
 	.CodeMirror-gutters {
-		background: hsl( $syntax-hue, $syntax-saturation, $syntax-brightness );
+		background: hsl( colors.$syntax-hue, colors.$syntax-saturation, colors.$syntax-brightness );
 		border-right: 0px;
 		padding-right: 8px;
 	}
 
 	.CodeMirror-linenumber {
-		color: $syntax-gutter;
+		color: colors.$syntax-gutter;
 	}
 
 	.CodeMirror-activeline-gutter {
 		.CodeMirror-linenumber {
-			color: $mono-1;
+			color: colors.$mono-1;
 		}
 	}
 
 	.CodeMirror-matchingbracket {
-		border-bottom: 1px solid $mono-1;
-		color: $mono-1 !important;
+		border-bottom: 1px solid colors.$mono-1;
+		color: colors.$mono-1 !important;
 	}
 
 	.CodeMirror-activeline-background {
-		background-color: fade-out( $mono-1, 0.95 );
+		background-color: color.adjust( colors.$mono-1, colors.$alpha: -0.95 );
 	}
 
 	.CodeMirror-linebackground-highlight {
-		background-color: $syntax-highlight;
+		background-color: colors.$syntax-highlight;
 	}
 }
